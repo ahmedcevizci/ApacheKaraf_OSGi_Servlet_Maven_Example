@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0" name="tasklist">
+
+    <feature name="example-tasklist-ui" version="${pom.version}">
+        <feature>http</feature>
+        <feature>http-whiteboard</feature>
+        <bundle>mvn:info.alaz.tasklist/tasklist-service/${pom.version}</bundle>
+        <bundle>mvn:info.alaz.tasklist/tasklist-service-impl/${pom.version}</bundle>
+        <bundle>mvn:info.alaz.tasklist/tasklist-ui/${pom.version}</bundle>
+    </feature>
+    
+    <feature name="example-tasklist-service-impl" version="${pom.version}">
+        <bundle>mvn:info.alaz.tasklist/tasklist-service/${pom.version}</bundle>
+        <bundle>mvn:info.alaz.tasklist/tasklist-service-impl/${pom.version}</bundle>
+        <bundle>mvn:info.alaz.tasklist/tasklist-karaf-command/${pom.version}</bundle>
+    </feature>
+
+    <feature name="example-tasklist" version="${pom.version}">
+        <feature>example-tasklist-service-impl</feature>
+        <feature>example-tasklist-ui</feature>
+    </feature>
+
+</features>
